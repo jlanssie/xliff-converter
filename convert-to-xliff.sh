@@ -47,6 +47,8 @@ do
     #done < <(echo -e $( cat $INPUT | tail -n +2 ) ) #Input
     done < $INPUT 
 
+    OUTPUT+=$( echo "\n" )
+
     OUTPUT+="</body>\n</file>\n</xliff>"
 
     echo -e $OUTPUT > ./"$LANGUAGE".xliff #Output
