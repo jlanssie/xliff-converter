@@ -3,7 +3,7 @@
 # ARGUMENTS: /
 # AUTHOR: Jeremy Lanssiers
 # VERSION: 1.0
-# REQUIRES: zsh/bash and a file in the same directory called input.csv with semicolon delimiters, a first column that contains the key string and one or mulitple columns with values. The first row should contain the languages, e.g.: key;EN;ES;CH;IN. Make sure the input.csv ends with a newline character (the last line of the csv should be empty) otherwise the last row may be skipped.
+# REQUIRES: zsh/bash
 
 INPUT="./input.csv"
 
