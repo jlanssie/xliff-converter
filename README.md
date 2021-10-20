@@ -1,2 +1,2 @@
 # xliff-converter
-A CSV to Xliff converter
+A CSV to Xliff converter.
