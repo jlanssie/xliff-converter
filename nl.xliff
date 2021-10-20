@@ -1,20 +1,20 @@
-<xliff version="1.1"><file original="/libs/cq/i18n/nl" source-language="en" target-language="nl" datatype="x-javaresourcebundle" tool-id="com.day.cq.cq-i18n" date="Thu 21 Oct 01:14:01 CEST 2021">
+<xliff version="1.1"><file original="/libs/cq/i18n/nl" source-language="en" target-language="nl" datatype="x-javaresourcebundle" tool-id="com.day.cq.cq-i18n" date="Thu 21 Oct 01:38:31 CEST 2021">
 <header>
 <tool tool-id="com.day.cq.cq-i18n" tool-name="Adobe Granite I18N Module" tool-version="5.5.16" tool-company="Adobe Systems Incorporated"/>
 </header>
 <body>
-<trans-unit id="1"><source xml:lang="en"> <![CDATA[ joker ]]> </source><target xml:lang="nl"> <![CDATA[ Jeroom ]]> </target></trans-unit>
-<trans-unit id="2"><source xml:lang="en"> <![CDATA[ king ]]> </source><target xml:lang="nl"> <![CDATA[ ?!#@*^&%"'`{}[]() ]]> </target></trans-unit>
-<trans-unit id="3"><source xml:lang="en"> <![CDATA[ queen ]]> </source><target xml:lang="nl"> <![CDATA[ Elio di Rupo ]]> </target></trans-unit>
-<trans-unit id="4"><source xml:lang="en"> <![CDATA[ jack ]]> </source><target xml:lang="nl"> <![CDATA[ ]]> </target></trans-unit>
-<trans-unit id="5"><source xml:lang="en"> <![CDATA[ 9 ]]> </source><target xml:lang="nl"> <![CDATA[ negen ]]> </target></trans-unit>
-<trans-unit id="6"><source xml:lang="en"> <![CDATA[ 8 ]]> </source><target xml:lang="nl"> <![CDATA[ acht ]]> </target></trans-unit>
-<trans-unit id="7"><source xml:lang="en"> <![CDATA[ 7 ]]> </source><target xml:lang="nl"> <![CDATA[ zeven ]]> </target></trans-unit>
-<trans-unit id="8"><source xml:lang="en"> <![CDATA[ 6 ]]> </source><target xml:lang="nl"> <![CDATA[ zes ]]> </target></trans-unit>
-<trans-unit id="9"><source xml:lang="en"> <![CDATA[ 5 ]]> </source><target xml:lang="nl"> <![CDATA[ vijf ]]> </target></trans-unit>
-<trans-unit id="10"><source xml:lang="en"> <![CDATA[ 4 ]]> </source><target xml:lang="nl"> <![CDATA[ vier ]]> </target></trans-unit>
-<trans-unit id="11"><source xml:lang="en"> <![CDATA[ 3 ]]> </source><target xml:lang="nl"> <![CDATA[ drie ]]> </target></trans-unit>
-<trans-unit id="12"><source xml:lang="en"> <![CDATA[ 2 ]]> </source><target xml:lang="nl"> <![CDATA[ twee ]]> </target></trans-unit>
+<trans-unit id="1"><source xml:lang="en"> <![CDATA[ king ]]> </source><target xml:lang="nl"> <![CDATA[ ?!#@*^&%"'`{}[]() ]]> </target></trans-unit>
+<trans-unit id="2"><source xml:lang="en"> <![CDATA[ queen ]]> </source><target xml:lang="nl"> <![CDATA[ Elio di Rupo ]]> </target></trans-unit>
+<trans-unit id="3"><source xml:lang="en"> <![CDATA[ jack ]]> </source><target xml:lang="nl"> <![CDATA[ ]]> </target></trans-unit>
+<trans-unit id="4"><source xml:lang="en"> <![CDATA[ 9 ]]> </source><target xml:lang="nl"> <![CDATA[ negen ]]> </target></trans-unit>
+<trans-unit id="5"><source xml:lang="en"> <![CDATA[ 8 ]]> </source><target xml:lang="nl"> <![CDATA[ acht ]]> </target></trans-unit>
+<trans-unit id="6"><source xml:lang="en"> <![CDATA[ 7 ]]> </source><target xml:lang="nl"> <![CDATA[ zeven ]]> </target></trans-unit>
+<trans-unit id="7"><source xml:lang="en"> <![CDATA[ 6 ]]> </source><target xml:lang="nl"> <![CDATA[ zes ]]> </target></trans-unit>
+<trans-unit id="8"><source xml:lang="en"> <![CDATA[ 5 ]]> </source><target xml:lang="nl"> <![CDATA[ vijf ]]> </target></trans-unit>
+<trans-unit id="9"><source xml:lang="en"> <![CDATA[ 4 ]]> </source><target xml:lang="nl"> <![CDATA[ vier ]]> </target></trans-unit>
+<trans-unit id="10"><source xml:lang="en"> <![CDATA[ 3 ]]> </source><target xml:lang="nl"> <![CDATA[ drie ]]> </target></trans-unit>
+<trans-unit id="11"><source xml:lang="en"> <![CDATA[ 2 ]]> </source><target xml:lang="nl"> <![CDATA[ twee ]]> </target></trans-unit>
+<trans-unit id="12"><source xml:lang="en"> <![CDATA[ 1 ]]> </source><target xml:lang="nl"> <![CDATA[ Aas ]]> </target></trans-unit>
 </body>
 </file>
 </xliff>
