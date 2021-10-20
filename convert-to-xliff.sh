@@ -6,6 +6,7 @@
 # REQUIRES: zsh/bash and a file in the same directory called input.csv with semicolon delimiters, a first column that contains the key string and one or mulitple columns with values. The first row should contain the languages, e.g.: key;EN;ES;CH;IN
 
 INPUT="./input.csv"
+cat $INPUT | tail -n +2
 
 LANGUAGES=()
 
@@ -17,7 +18,7 @@ do
     do
         LANGUAGES+=($( echo ${A[$i]} | tr '[:upper:]' '[:lower:]' | tr -d '\r' ))
     done
-done < <(echo $(head -n 1 $INPUT )) #Input
+done < <(echo $( cat $INPUT | head -n 1 ) ) #Input
 
 for LANGUAGE in "${LANGUAGES[@]}"
 do
@@ -32,18 +33,22 @@ do
         KEY=${A[0]}
         VALUE=$( echo ${A[$INDEX]} | tr -d '\r')
 
-        ITEM=""
-        ITEM+=$( echo "<trans-unit id=\""$ID"\">" );
-        ITEM+=$( echo "<source xml:lang=\"en\">\n<![CDATA[ "$KEY" ]]>\n</source>" )
-        ITEM+=$( echo "<target xml:lang=\""$LANGUAGE"\">\n<![CDATA[ "$VALUE" ]]>\n</target>" )
-        ITEM+=$( echo "</trans-unit>" )
-        OUTPUT+=$( echo -e "$ITEM\r" )
+        if [ $ID -ne 0 ] #Skip the first row
+        then
+            ITEM=""
+            ITEM+=$( echo -e "<trans-unit id=\""$ID"\">" );
+            ITEM+=$( echo -e "<source xml:lang=\"en\">\n<![CDATA[ "$KEY" ]]>\n</source>" )
+            ITEM+=$( echo -e "<target xml:lang=\""$LANGUAGE"\">\n<![CDATA[ "$VALUE" ]]>\n</target>" )
+            ITEM+=$( echo -e "</trans-unit>" )
+            OUTPUT+=$( echo "$ITEM\n" )
+        fi
 
         ID=$((ID+1))
-    #done < <(echo $(tail -n +1 $INPUT )) #Input
+    #done < <(echo -e $( cat $INPUT | tail -n +2 ) ) #Input
     done < $INPUT 
 
     OUTPUT+="</body>\n</file>\n</xliff>"
+
     echo -e $OUTPUT > ./"$LANGUAGE".xliff #Output
 
     INDEX=$((INDEX+1))
