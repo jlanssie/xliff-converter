@@ -17,7 +17,7 @@ do
     do
         LANGUAGES+=($( echo ${A[$i]} | tr '[:upper:]' '[:lower:]' | tr -d '\r' ))
     done
-done < <( cat "$INPUT" | head -n 1 ) #Input
+done < <( cat "$INPUT" | head -n 1 ) #Input: first row/line only
 
 for LANGUAGE in "${LANGUAGES[@]}"
 do
@@ -43,7 +43,7 @@ do
         fi
 
         ID=$((ID+1))
-    done < <( cat "$INPUT" | tail -n +2 ) #Input
+    done < <( cat "$INPUT" | tail -n +2 ) #Input: all rows/lines except for the first
     #done < $INPUT 
 
     OUTPUT+="</body>\n</file>\n</xliff>" #Tail
