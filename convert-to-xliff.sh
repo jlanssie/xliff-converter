@@ -61,12 +61,18 @@ do
 done < <(find . -name "*xliff" -print0)
 
 OUTPUT=()
+OUTPUT[1]+=$( echo "key;" )
 
 for XLIFF in "${XLIFFS[@]}"
 do
-    OUTPUT=""
-    INDEX=1
+    INDEX=2
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
+
+    OUTPUT[1]+=$( echo "$LANGUAGE;" )
+    if [[ $XLIFF == ${XLIFFS[-1]} ]]
+    then 
+        OUTPUT[1]+=$( echo "\n" )
+    fi
 
     while IFS=";" read -a LINE
     do
@@ -87,12 +93,9 @@ do
                 OUTPUT[$INDEX]+=$( echo "\n" )
             fi
 
-
             INDEX=$((INDEX+1))
         fi
-
     done < $XLIFF
-    echo -e ${OUTPUT[@]}
 done
 
 echo -e ${OUTPUT[@]} > ./output.csv
