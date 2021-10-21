@@ -69,10 +69,11 @@ do
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
     KEY=""
 
-#    while IFS=";" read -a A
-#    do#
+    while IFS=";" read -a A
+    do
+        echo hit
 
-#    done < $XLIFF
+    done < $XLIFF
 
 
     OUTPUT=""
