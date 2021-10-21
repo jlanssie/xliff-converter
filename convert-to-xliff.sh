@@ -67,6 +67,13 @@ done < <(find . -name "*xliff" -print0)
 for XLIFF in "${XLIFFS[@]}"
 do
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
+    KEY=""
+
+#    while IFS=";" read -a A
+#    do#
+
+#    done < $XLIFF
+
 
     OUTPUT=""
 
