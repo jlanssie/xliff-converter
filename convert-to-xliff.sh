@@ -65,7 +65,7 @@ OUTPUT=()
 for XLIFF in "${XLIFFS[@]}"
 do
     OUTPUT=""
-    INDEX=0
+    INDEX=1
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
 
     while IFS=";" read -a LINE
