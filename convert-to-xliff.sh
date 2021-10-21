@@ -64,6 +64,13 @@ do
     XLIFFS+=($(echo "$XLIFF"))
 done < <(find . -name "*xliff" -print0)
 
-#echo ${XLIFFS[@]}
+for XLIFF in "${XLIFFS[@]}"
+do
+    LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
+
+    OUTPUT=""
+
+    echo -e $OUTPUT > ./"$LANGUAGE"-output.csv
+done
 
 exit 0
