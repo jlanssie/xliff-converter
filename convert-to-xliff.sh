@@ -32,15 +32,12 @@ do
         KEY=${LINE[0]}
         VALUE=$( echo ${LINE[$INDEX]} | tr -d '\r')
 
-        if [ $ID -ne 0 ] #Skip the first row
-        then
-            TRANSUNIT="" #Key-Value
-            TRANSUNIT+=$( echo -e "<trans-unit id=\""$ID"\">" );
-            TRANSUNIT+=$( echo -e "<source xml:lang=\"en\">\n<![CDATA[ "$KEY" ]]>\n</source>" )
-            TRANSUNIT+=$( echo -e "<target xml:lang=\""$LANGUAGE"\">\n<![CDATA[ "$VALUE" ]]>\n</target>" )
-            TRANSUNIT+=$( echo -e "</trans-unit>" )
-            OUTPUT+=$( echo "$TRANSUNIT\n" )
-        fi
+        TRANSUNIT="" #Key-Value
+        TRANSUNIT+=$( echo -e "<trans-unit id=\""$ID"\">" );
+        TRANSUNIT+=$( echo -e "<source xml:lang=\"en\">\n<![CDATA[ "$KEY" ]]>\n</source>" )
+        TRANSUNIT+=$( echo -e "<target xml:lang=\""$LANGUAGE"\">\n<![CDATA[ "$VALUE" ]]>\n</target>" )
+        TRANSUNIT+=$( echo -e "</trans-unit>" )
+        OUTPUT+=$( echo "$TRANSUNIT\n" )
 
         ID=$((ID+1))
     done < <( cat "$INPUT" | tail -n +2 ) #Input: all rows/lines except for the first
