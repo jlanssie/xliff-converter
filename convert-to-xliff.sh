@@ -74,10 +74,9 @@ do
         PATTERN="^<trans\-unit(.*)"
         if [[ $( echo $A ) =~ $PATTERN ]]
         then
-            KEY=$( echo $A | grep -oP '(?<=(\<\!\[CDATA\[\ )).*(?=(\ \]\].*target xml))' )
-            VALUE=$( echo $A | grep -oP '(?<=(\<target\ xml\:lang\=\"en\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\].*))' )
-            #echo $VALUE
-            OUTPUT+=$( echo "$KEY;\n" )
+            KEY=$( echo $A | grep -oP '(?<=(\<source\ xml\:lang\=\"..\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\]\>\ \<\/source\>))' )
+            VALUE=$( echo $A | grep -oP '(?<=(\<target\ xml\:lang\=\"..\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\]\>\ \<\/target\>))' )
+            OUTPUT+=$( echo "$KEY;$VALUE\n" )
         fi
 
     done < $XLIFF
