@@ -44,7 +44,6 @@ do
 
         ID=$((ID+1))
     done < <( cat "$INPUT" | tail -n +2 ) #Input: all rows/lines except for the first
-    #done < $INPUT 
 
     OUTPUT+="</body>\n</file>\n</xliff>" #Tail
 
@@ -64,9 +63,12 @@ do
     XLIFFS+=($(echo "$XLIFF"))
 done < <(find . -name "*xliff" -print0)
 
+OUTPUT=()
+
 for XLIFF in "${XLIFFS[@]}"
 do
     OUTPUT=""
+    INDEX=0
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
 
     while IFS=";" read -a A
@@ -74,14 +76,27 @@ do
         PATTERN="^<trans\-unit(.*)"
         if [[ $( echo $A ) =~ $PATTERN ]]
         then
-            KEY=$( echo $A | grep -oP '(?<=(\<source\ xml\:lang\=\"..\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\]\>\ \<\/source\>))' )
+            if [[ $XLIFF == ${XLIFFS[0]} ]]
+            then 
+                KEY=$( echo $A | grep -oP '(?<=(\<source\ xml\:lang\=\"..\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\]\>\ \<\/source\>))' )
+                OUTPUT[$INDEX]+=$( "$KEY;" )
+            fi
+            
             VALUE=$( echo $A | grep -oP '(?<=(\<target\ xml\:lang\=\"..\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\]\>\ \<\/target\>))' )
-            OUTPUT+=$( echo "$KEY;$VALUE\n" )
+            OUTPUT[$INDEX]+=$( "$VALUE;" )
+
+            if [[ $XLIFF == ${#XLIFFS[0]} ]]
+            then 
+                OUTPUT[$INDEX]+=$( "\n" )
+            fi
+
+
+            INDEX=$((INDEX+1))
         fi
 
     done < $XLIFF
-
-    echo -e $OUTPUT > ./"$LANGUAGE"-output.csv
 done
+
+echo -e ${OUTPUT[@]} > ./output.csv
 
 exit 0
