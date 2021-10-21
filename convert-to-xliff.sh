@@ -55,4 +55,15 @@ do
     echo -e "completed $LANGUAGE\n" #Show progress
 done
 
+
+
+XLIFFS=()
+
+while IFS= read -d $'\0' -r XLIFF
+do
+    XLIFFS+=($(echo "$XLIFF"))
+done < <(find . -name "*xliff" -print0)
+
+#echo ${XLIFFS[@]}
+
 exit 0
