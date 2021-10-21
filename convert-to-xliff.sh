@@ -67,11 +67,14 @@ done < <(find . -name "*xliff" -print0)
 for XLIFF in "${XLIFFS[@]}"
 do
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
-    KEY=""
 
     while IFS=";" read -a A
     do
-        echo hit
+        KEY=$( echo $A | grep -oP '(?<=(\<\!\[CDATA\[\ )).*(?=(\ \]\].*target xml))' )
+        echo $KEY
+        VALUE=$( echo $A )
+        echo $VALUE
+
 
     done < $XLIFF
 
