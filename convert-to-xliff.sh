@@ -71,11 +71,14 @@ do
 
     while IFS=";" read -a A
     do
-        KEY=$( echo $A | grep -oP '(?<=(\<\!\[CDATA\[\ )).*(?=(\ \]\].*target xml))' )
-        echo $KEY
-        VALUE=$( echo $A )
-        echo $VALUE
-        OUTPUT+=$( echo "$KEY;$VALUE" )
+        PATTERN="^<trans\-unit(.*)"
+        if [[ $( echo $A ) =~ $PATTERN ]]
+        then
+            KEY=$( echo $A | grep -oP '(?<=(\<\!\[CDATA\[\ )).*(?=(\ \]\].*target xml))' )
+            #VALUE=$( echo $A )
+            #echo $VALUE
+            OUTPUT+=$( echo "$KEY;\n" )
+        fi
 
     done < $XLIFF
 
