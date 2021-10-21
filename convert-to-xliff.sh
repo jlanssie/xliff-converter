@@ -109,6 +109,6 @@ else
     echo "xliffs could not be found."
 fi
 
-echo -e ${OUTPUT[@]} > ./output.csv
+echo -e ${OUTPUT[@]} | sed s'/^\ //'g  > ./output.csv
 
 exit 0
