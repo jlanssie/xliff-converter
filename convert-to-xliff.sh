@@ -66,6 +66,7 @@ done < <(find . -name "*xliff" -print0)
 
 for XLIFF in "${XLIFFS[@]}"
 do
+    OUTPUT=""
     LANGUAGE=$( echo $( cat $XLIFF | grep -oP '(?<=(target-language="))..(?=("))' ))
 
     while IFS=";" read -a A
@@ -74,12 +75,9 @@ do
         echo $KEY
         VALUE=$( echo $A )
         echo $VALUE
-
+        OUTPUT+=$( echo "$KEY;$VALUE" )
 
     done < $XLIFF
-
-
-    OUTPUT=""
 
     echo -e $OUTPUT > ./"$LANGUAGE"-output.csv
 done
