@@ -75,7 +75,7 @@ do
         if [[ $( echo $A ) =~ $PATTERN ]]
         then
             KEY=$( echo $A | grep -oP '(?<=(\<\!\[CDATA\[\ )).*(?=(\ \]\].*target xml))' )
-            #VALUE=$( echo $A )
+            VALUE=$( echo $A | grep -oP '(?<=(\<target\ xml\:lang\=\"en\"\>\ \<\!\[CDATA\[\ )).*(?=(\ \]\].*))' )
             #echo $VALUE
             OUTPUT+=$( echo "$KEY;\n" )
         fi
