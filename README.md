@@ -14,3 +14,7 @@ The first row/line should start with key field and the second (and all fields af
 The remaining rows/lines should contain the key string and corresponding languages values (based on the first row/line), e.g. key,EN-value,es-value,IN-value,Ch-value,...
 
 The last row of the input.csv should end with a newline character, i.e. the last line of the input.csv should be empty, otherwise the last row may be skipped by the while loop.
+
+## Sample files
+
+The csv and xliff files in the repository are samples. The processing script is the .sh file.
