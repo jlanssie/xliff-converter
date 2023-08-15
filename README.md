@@ -1,5 +1,5 @@
 # xliff-converter
-A CSV to Xliff converter.
+A CSV to Xliff converter for Adobe Experience Manager.
 
 ## Function
 
